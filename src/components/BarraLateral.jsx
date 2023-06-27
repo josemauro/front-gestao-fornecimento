@@ -1,0 +1,67 @@
+import { Accordion, Nav } from "react-bootstrap";
+
+function BarraLateral() {
+
+    return (
+        <div id="layoutSidenav_nav">
+            <Accordion>
+                    <Accordion.Item eventKey="0">
+                        <Accordion.Header>Empty</Accordion.Header>
+                        <Accordion.Body>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                   <Accordion.Item eventKey="1">
+                        <Accordion.Header>Fornecedores</Accordion.Header>
+                        <Accordion.Body>
+                            <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
+                                activeKey="/home"
+                                onSelect={selectedKey => alert(`selected ${selectedKey}`)}
+                                >
+                                <Nav.Item>
+                                    <Nav.Link eventKey="link-1">Pesquisar</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
+                                    <Nav.Link eventKey="link-2">Cadastrar</Nav.Link>
+                                </Nav.Item>
+                            </Nav>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="2">
+                        <Accordion.Header>Empresas</Accordion.Header>
+                        <Accordion.Body>
+                        <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
+                        activeKey="/home"
+                        onSelect={selectedKey => alert(`selected ${selectedKey}`)}
+                        >
+                        <Nav.Item>
+                            <Nav.Link eventKey="link-1">Pesquisar</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link eventKey="link-2">Cadastrar</Nav.Link>
+                        </Nav.Item>
+                        </Nav>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="3">
+                        <Accordion.Header>Empresas</Accordion.Header>
+                        <Accordion.Body>
+                            <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
+                            activeKey="/home"
+                            onSelect={selectedKey => alert(`selected ${selectedKey}`)}
+                            >
+                            <Nav.Item>
+                                <Nav.Link eventKey="link-1">Pesquisar</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link eventKey="link-2">Cadastrar</Nav.Link>
+                            </Nav.Item>
+                            </Nav>
+                        </Accordion.Body>
+                    </Accordion.Item>
+            </Accordion> 
+            </div>
+        
+    )
+  }
+  
+  export default BarraLateral;
