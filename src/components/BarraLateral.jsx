@@ -33,13 +33,13 @@ function BarraLateral() {
                         <Accordion.Body>
                         <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
                         activeKey="/home"
-                        onSelect={selectedKey => alert(`selected ${selectedKey}`)}
+                        onSelect={selectedKey => navigate(selectedKey)}
                         >
                         <Nav.Item>
-                            <Nav.Link eventKey="link-1">Pesquisar</Nav.Link>
+                            <Nav.Link eventKey="/empresa-busca">Pesquisar</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="link-2">Cadastrar</Nav.Link>
+                            <Nav.Link eventKey="/empresa-cadastro">Cadastrar</Nav.Link>
                         </Nav.Item>
                         </Nav>
                         </Accordion.Body>
@@ -49,7 +49,7 @@ function BarraLateral() {
                         <Accordion.Body>
                             <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
                             activeKey="/home"
-                            onSelect={selectedKey => alert(`selected ${selectedKey}`)}
+                            onSelect={selectedKey => navigate(selectedKey)}
                             >
                             <Nav.Item>
                                 <Nav.Link eventKey="link-1">Pesquisar</Nav.Link>

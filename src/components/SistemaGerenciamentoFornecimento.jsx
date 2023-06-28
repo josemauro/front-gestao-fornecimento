@@ -6,6 +6,8 @@
 import Home from "../components/Home";
 
 import BarraLateral from "./BarraLateral";
+import EmpresasBusca from "./EmpresaBusca";
+import EmpresasCadastro from "./EmpresasCadastro";
 import FornecedoresBusca from "./FornecedoresBusca";
 import FornecedoresCadastro from "./FornecedoresCadastro";
 
@@ -13,9 +15,14 @@ function SistemaGerenciamentoFornecimento(props) {
   var telaEscolhida = <Home/>
   if (props.tela == "1") {
     telaEscolhida = <FornecedoresBusca/>;
-  } if (props.tela == "2") {
+  } else if (props.tela == "2") {
     telaEscolhida = <FornecedoresCadastro/>;
+  } else if (props.tela == "3") {
+    telaEscolhida = <EmpresasBusca/>;
+  }  else if (props.tela == "4") {
+    telaEscolhida = <EmpresasCadastro/>;
   }
+
   return (
     <div className="sb-nav-fixed">
           <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">

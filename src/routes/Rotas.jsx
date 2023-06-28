@@ -1,10 +1,6 @@
 import { BrowserRouter, Route, Routes} from "react-router-dom";
-// import Home from "../components/Home";
 import SistemaGerenciamentoFornecimento from "../components/SistemaGerenciamentoFornecimento";
-// import Page2 from "./pages/Page-2";
-// import Page3 from "./pages/Page-3";
-// import Dashboard from "./pages/Dashboard";
-// import NotFound from "./pages/NotFound";
+
 
 function Rotas() {
     return (
@@ -15,6 +11,10 @@ function Rotas() {
                    element={<SistemaGerenciamentoFornecimento tela="1"/>}
             />
             <Route path="/fornecedor-cadastro" element={<SistemaGerenciamentoFornecimento tela="2" />} />
+            <Route path="/empresa-busca"
+                   element={<SistemaGerenciamentoFornecimento tela="3"/>}
+            />
+            <Route path="/empresa-cadastro" element={<SistemaGerenciamentoFornecimento tela="4" />} />
           </Routes>
         </BrowserRouter>
     )
