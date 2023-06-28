@@ -5,28 +5,52 @@ function EmpresasCadastro() {
     const [nome, setNome] = useState('');
     const [id, setId] = useState('');
     const [cep, setCep] = useState('');
-    
-    const handleZipCode = (event) => {
-        let input = event.target
-        input.value = zipCodeMask(input.value)
+    const [cepValido, setCepValido] = useState(false);
+
+    const validarCEP = async (cep) => {
+        
+        try {
+            await axios.get("http://cep.la/"+cep,{headers: { 'Accept': 'application/json' }})
+                        .then((response) => {
+
+                                                if (response.status == 200 && response.data.length != null){
+                                                    setCepValido(false);
+                                                } else {
+                                                    setCepValido(true);
+                                                }
+                                            })
+        } catch (err) {
+            console.log(err);
+        }
+        
+      };
+
+    const handleCEP = (event) => {
+        let input = event.target;
+        let cep = event.target.value
+        validarCEP(cep.replace('-',''));
+        input.value = mascaraCEP(input.value)
       }
       
-    const zipCodeMask = (value) => {
+    const mascaraCEP = (value) => {
         if (!value) return ""
         value = value.replace(/\D/g,'')
         value = value.replace(/(\d{5})(\d)/,'$1-$2')
         return value
     }
-    const handleSubmit = async e => {
+    
+   
 
-        e.preventDefault();
+    const handleSubmit = async () => {
 
-        
+        if (!cepValido) {
+            alert("Insira um CEP válido!");
+            return;
+        }
         try {
             await axios.post("http://localhost:8181/empresas/salvar?cnpj="+id+"&nomeFantasia="+nome+"&cep="+cep, )
                         .then((response) => {
 
-                                                console.log("teste", response);
                                                 if (response.status == 200){
                                                     alert("Salvo com sucesso!");
                                                 } else {
@@ -67,7 +91,7 @@ function EmpresasCadastro() {
                         <div className="form-group mt-4 mb-4">
                             <label>CEP</label>
                             <input type="text" className="form-control mt-4"
-                                   maxLength="9" onKeyUp={e => handleZipCode(e)}
+                                   maxLength="9" onKeyUp={e => handleCEP(e)}
                                    placeholder="CEP"
                                    onChange={e => setCep(e.target.value)}
                                    required/>
