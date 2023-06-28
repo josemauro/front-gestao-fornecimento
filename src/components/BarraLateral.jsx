@@ -1,6 +1,8 @@
 import { Accordion, Nav } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 function BarraLateral() {
+    const navigate = useNavigate();
 
     return (
         <div id="layoutSidenav_nav">
@@ -15,13 +17,13 @@ function BarraLateral() {
                         <Accordion.Body>
                             <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
                                 activeKey="/home"
-                                onSelect={selectedKey => alert(`selected ${selectedKey}`)}
+                                onSelect={selectedKey => navigate(selectedKey)}
                                 >
                                 <Nav.Item>
-                                    <Nav.Link eventKey="link-1">Pesquisar</Nav.Link>
+                                    <Nav.Link eventKey="/fornecedor-busca">Pesquisar</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="link-2">Cadastrar</Nav.Link>
+                                    <Nav.Link eventKey="/fornecedor-cadastro">Cadastrar</Nav.Link>
                                 </Nav.Item>
                             </Nav>
                         </Accordion.Body>
