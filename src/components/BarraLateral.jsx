@@ -45,7 +45,7 @@ function BarraLateral() {
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="3">
-                        <Accordion.Header>Empresas</Accordion.Header>
+                        <Accordion.Header>Parcerias</Accordion.Header>
                         <Accordion.Body>
                             <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
                             activeKey="/home"

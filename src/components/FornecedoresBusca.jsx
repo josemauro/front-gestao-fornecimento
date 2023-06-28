@@ -1,5 +1,10 @@
+import { useState } from "react";
+import ResultadoBusca from "./ResultadoBusca";
 
 function FornecedoresBusca() {
+    // eslint-disable-next-line no-unused-vars
+    const [resultados, setResultados] = useState([{id:"123", nome: "jose"}]);
+
 
     return (
         <div className="container-fluid px-4">
@@ -32,6 +37,11 @@ function FornecedoresBusca() {
                     </form>
                 </div>
             </div>
+
+            <ul className="list-group my-4">
+                {resultados ? resultados.map(fornecedor => (<ResultadoBusca key={fornecedor.id} nome={fornecedor.nome} />)) : ""}
+            </ul>
+            
         </div>        
     )
   }
