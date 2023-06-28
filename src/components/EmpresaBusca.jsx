@@ -7,6 +7,26 @@ function EmpresasBusca() {
     const [resultados, setResultados] = useState([]);
     const [valor, setValor] = useState("");
 
+    const removerEmpresa = async e => {
+
+        e.preventDefault();
+
+        
+        try {
+            await axios.post("http://localhost:8181/empresas/apagar?cnpj="+e.target.id)
+                        .then((response) => {
+                                                if (response.status == 200){
+                                                    alert("Empresa removida com sucesso!");
+                                                } else {
+                                                throw response.data;
+                                                }
+                                            })
+        } catch (err) {
+            alert("Erro ao remover empresa!");
+
+        }
+        
+      };
     const handleSubmitEmpresa = async e => {
 
         e.preventDefault();
@@ -59,7 +79,7 @@ function EmpresasBusca() {
             </div>
 
             <ul className="list-group my-4">
-                {resultados ? resultados.map(empresa => (<ResultadoBusca key={empresa.id} nome={empresa.nomeFantasia} id={empresa.id} />)) : ""}
+                {resultados ? resultados.map(empresa => (<ResultadoBusca key={empresa.cnpj} nome={empresa.nomeFantasia} id={empresa.cnpj} funcaoRemover={removerEmpresa} />)) : ""}
             </ul>
             
         </div>        

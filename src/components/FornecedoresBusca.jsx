@@ -8,7 +8,26 @@ function FornecedoresBusca() {
     const [filtro, setFiltro] = useState("nome");
     const [valor, setValor] = useState("");
 
+    const removerFornecedor = async e => {
 
+        e.preventDefault();
+
+        
+        try {
+            await axios.post("http://localhost:8181/fornecedores/apagar?id="+e.target.id)
+                        .then((response) => {
+                                                if (response.status == 200){
+                                                    alert("Fornecedor removido com sucesso!");
+                                                } else {
+                                                throw response.data;
+                                                }
+                                            })
+        } catch (err) {
+            alert("Erro ao deletar fornecedor!");
+
+        }
+        
+      };
     const handleSubmit = async e => {
 
         e.preventDefault();
@@ -87,7 +106,7 @@ function FornecedoresBusca() {
             </div>
 
             <ul className="list-group my-4">
-                {resultados ? resultados.map(fornecedor => (<ResultadoBusca key={fornecedor.id} nome={fornecedor.nome} id={fornecedor.id} />)) : ""}
+                {resultados ? resultados.map(fornecedor => (<ResultadoBusca key={fornecedor.id} nome={fornecedor.nome} id={fornecedor.id} funcaoRemover={removerFornecedor} />)) : ""}
             </ul>
             
         </div>        
