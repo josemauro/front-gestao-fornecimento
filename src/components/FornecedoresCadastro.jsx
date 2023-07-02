@@ -47,10 +47,10 @@ function FornecedoresCadastro() {
       };
 
     return (
-        <div className="container-fluid px-4 fs-5">
+        <div className="container-fluid fs-5">
             <h1 className="mt-4">Cadastro de fornecedores</h1>
             <div className="card mt-5">
-                <div className="card-body">
+                <div className="card-body px-5 mx-5">
                     <form style={{marginLeft: "200px", marginRight: "200px"}} onSubmit={handleSubmit}>
                         <div className="form-group mt-4 mb-4">
                             <label className="form-label">Nome</label>
@@ -76,30 +76,30 @@ function FornecedoresCadastro() {
                                    onChange={e => setEmail(e.target.value)}
                                    required/>
                         </div>
-                        <div style={{width: "350px", marginLeft: "200px", marginRight: "200px", textAlign: "left"}}>    
-                            <label >
-                                É pessoa física?
-                            </label>
-                    
-                            <div className="form-check mt-3">
-                                <input className="form-check-input" type="radio" name="flexRadioDefault"
+                       
+                        <label >
+                            É pessoa física?
+                        </label>
+                        <div className="row mt-3 mx-4 px-4 d-flex">    
+                            <div className="col-6 form-check d-flex">
+                                <input className="form-check-input px-2" type="radio" name="flexRadioDefault"
                                     value={true}
                                     id="flexRadioDefault1"
                                     onChange={e => setPessoaFisica(e.target.value == 'true')}
                                     checked={pessoaFisica}
                                     />
-                                <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                <label className="form-check-label px-2" htmlFor="flexRadioDefault1">
                                     Sim
                                 </label>
                             </div>
 
-                            <div className="form-check">
-                                <input className="form-check-input" type="radio" name="flexRadioDefault"
+                            <div className="col-6 form-check d-flex">
+                                <input className="form-check-input px-2" type="radio" name="flexRadioDefault"
                                     value={false}
                                     onChange={e => setPessoaFisica(e.target.value == 'true')}
                                     id="flexRadioDefault2"
                                     checked={!pessoaFisica}/>
-                                <label className="form-check-label" htmlFor="flexRadioDefault2">
+                                <label className="form-check-label px-2" htmlFor="flexRadioDefault2">
                                     Não
                                 </label>
                             </div>
@@ -107,13 +107,14 @@ function FornecedoresCadastro() {
                         
                         {pessoaFisica && (
                             <>
-                            <div className="form-group mt-4 mb-4">
+                            <div className="form-group card mt-4 mb-4">
                                 <label>RG</label>
-                                <input type="text" className="form-control mt-4"
+                                <input type="text" className="form-control mt-3"
                                     placeholder="RG"
                                     onChange={e => setRg(e.target.value)}
                                     required/>
-                                <DatePicker className="form-control mt-4"
+                                <label className="mt-4">Data de nascimento:</label>
+                                <DatePicker className="form-control mt-3"
                                             selected={dataNascimento}
                                             onChange={(date)=> setDataNascimento(date)}
                                             dateFormat="dd/MM/yyyy"/>
