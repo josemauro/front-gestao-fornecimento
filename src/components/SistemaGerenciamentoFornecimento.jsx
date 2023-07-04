@@ -1,8 +1,4 @@
 /* eslint-disable react/prop-types */
-// import BarraLateral from "./BarraLateral";
-// import BarraSuperior from "./BarraSuperior";
-
-// import Rotas from "../routes/Rotas";
 import Home from "../components/Home";
 
 import BarraLateral from "./BarraLateral";
@@ -10,6 +6,7 @@ import EmpresasBusca from "./EmpresaBusca";
 import EmpresasCadastro from "./EmpresasCadastro";
 import FornecedoresBusca from "./FornecedoresBusca";
 import FornecedoresCadastro from "./FornecedoresCadastro";
+
 
 function SistemaGerenciamentoFornecimento(props) {
   var telaEscolhida = <Home/>

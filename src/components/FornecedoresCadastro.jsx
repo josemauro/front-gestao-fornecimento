@@ -11,7 +11,6 @@ function FornecedoresCadastro() {
     const [pessoaFisica, setPessoaFisica] = useState(false);
     const [rg, setRg] = useState(false);
     const [dataNascimento, setDataNascimento] = useState(new Date());
-    //inicializa
 
     const handleSubmit = async e => {
         

@@ -15,6 +15,7 @@ function Rotas() {
                    element={<SistemaGerenciamentoFornecimento tela="3"/>}
             />
             <Route path="/empresa-cadastro" element={<SistemaGerenciamentoFornecimento tela="4" />} />
+
           </Routes>
         </BrowserRouter>
     )

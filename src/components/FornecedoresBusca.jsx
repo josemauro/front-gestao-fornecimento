@@ -8,6 +8,7 @@ function FornecedoresBusca() {
     const [filtro, setFiltro] = useState("nome");
     const [valor, setValor] = useState("");
 
+
     const removerFornecedor = async e => {
 
         e.preventDefault();
@@ -28,6 +29,8 @@ function FornecedoresBusca() {
         }
         
       };
+  
+ 
     const handleSubmit = async e => {
 
         e.preventDefault();
@@ -61,8 +64,10 @@ function FornecedoresBusca() {
         
       };
 
+
     return (
-        <div className="container-fluid px-4">
+        <div className="container-fluid px-4 mt-3">
+
             <h1 className="mt-4">Buscar um fornecedor</h1>
             <div className="card mt-5">
                 <div className="card-body">
@@ -106,7 +111,12 @@ function FornecedoresBusca() {
             </div>
 
             <ul className="list-group my-4">
-                {resultados ? resultados.map(fornecedor => (<ResultadoBusca key={fornecedor.id} nome={fornecedor.nome} id={fornecedor.id} funcaoRemover={removerFornecedor} />)) : ""}
+                {resultados ? resultados.map(fornecedor => (<ResultadoBusca key={fornecedor.id} 
+                                                                            nome={fornecedor.nome}
+                                                                            id={fornecedor.id}
+                                                                            funcaoRemover={removerFornecedor}
+                                                                            info={fornecedor}
+                                                            />)) : ""}
             </ul>
             
         </div>        
