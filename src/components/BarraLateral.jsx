@@ -44,22 +44,6 @@ function BarraLateral() {
                         </Nav>
                         </Accordion.Body>
                     </Accordion.Item>
-                    <Accordion.Item eventKey="3">
-                        <Accordion.Header>Parcerias</Accordion.Header>
-                        <Accordion.Body>
-                            <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
-                            activeKey="/home"
-                            onSelect={selectedKey => navigate(selectedKey)}
-                            >
-                            <Nav.Item>
-                                <Nav.Link eventKey="link-1">Pesquisar</Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="link-2">Cadastrar</Nav.Link>
-                            </Nav.Item>
-                            </Nav>
-                        </Accordion.Body>
-                    </Accordion.Item>
             </Accordion> 
             </div>
         
